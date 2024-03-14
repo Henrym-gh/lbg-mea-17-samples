@@ -29,7 +29,7 @@ pipeline {
         stage('Test Deploy') {
             steps {
                 sh """
-                gcloud config set account jenkins-k8s@lbg-mea-17.iam.gserviceaccount.com
+                gcloud config set account jenkins-k8s-henrym@lbg-mea-17.iam.gserviceaccount.com
                 kubectl create ns task1-test || true
                 sed -e 's,{{YOUR_NAME}},'$YOUR_NAME',g;' Task1/app-config.yml | tee Task1/app-config.yaml
                 rm Task1/app-config.yml
